@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import jsBarcode from 'jsbarcode';
+import chubs from './helpers/chubs';
+import DisplayChubs from './components/displayChubs';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">      
+      <p>increase and decrease the count to get the answer</p>
+      <DisplayChubs chubs={chubs} />
     </div>
   );
 }
