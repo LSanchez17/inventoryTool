@@ -1,24 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const InventoryItem = ({identifier, name, weight, upc, count}) => {
     let [itemCount, setCount] = useState(count);
     let [itemWeight, setWeight] = useState(weight);
 
-    const upDoot = () => {
-        setCount(itemCount => itemCount + 1);
-        console.log(itemWeight, itemCount)
-        calculate();
-        console.log(itemWeight, itemCount)
-    }
+    useEffect(() => {
+        const calculate = () => {
+            console.log(itemWeight, itemCount)
+            setWeight(itemWeight => itemWeight * itemCount);
+        }
 
-    const downDoot = () => {
-        setCount(itemCount => itemCount - 1);
         calculate();
-    }
-
-    const calculate = () => {
-        setWeight(itemWeight => itemWeight * itemCount);
-    }
+    }, [itemCount]);
     
     let countId = `count${identifier}`;
     let inventoryId = `inventory${identifier}`;
@@ -28,12 +21,12 @@ const InventoryItem = ({identifier, name, weight, upc, count}) => {
     return (
         <div key={idNumber}>
             <h2>{name}</h2>
-            <h3 id={weightId}>Weight: {weight}</h3>
-            <button onClick={upDoot}>Increase</button>
-            <h3 id={countId}>Count {itemCount}</h3>
-            <button onClick={downDoot}>Decrease</button>
+            <h3 id={weightId}>Weight: {weight}lbs</h3>
+            <button onClick={() => setCount(itemCount + 1)}>Increase</button>
+            <h3 id={countId}># of chubs: {itemCount}</h3>
+            <button onClick={() => setCount(itemCount -1)}>Decrease</button>
             <h3>{upc}</h3>
-            <h3 id={inventoryId}>Total Weight: {itemWeight}</h3>
+            <h3 id={inventoryId}>Total: {itemWeight}lbs</h3>
         </div>
     );
 }
