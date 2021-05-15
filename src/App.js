@@ -6,8 +6,8 @@ import DisplayChubs from './components/displayChubs';
 function App() {
 
   return (
-    <div className="App bg-white-200">      
-      <p className='bg-gray-400 rounded m-5 p-3'>increase and decrease the count to get the answer</p>
+    <div className="App">      
+      <p className='bg-gray-400 rounded m-5 p-3'>Tap buttons to increase/decrease, enter the total weight after scanning barcode as lbs</p>
       <DisplayChubs chubs={chubs} />
     </div>
   );

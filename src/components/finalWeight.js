@@ -9,7 +9,7 @@ const FinalWeight = ({weight, count}) => {
     
     return (
         <div>
-            <p>{itemWeight}lbs</p>
+            <p className='bg-gray-200 p-1 m-2 rounded'>Total weight: {itemWeight}lbs</p>
         </div>
     )
 }

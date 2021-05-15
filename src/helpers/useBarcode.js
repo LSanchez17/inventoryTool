@@ -10,13 +10,9 @@ const useBarcode = (upc) => {
 
     useEffect(() => {
         jsBarcode(`#${upcId}`, upc);
-    }, []);
+    });
 
-    return (
-        <>
-        <svg id={upcId}></svg>
-        </>
-    );
+    return <svg id={upcId}></svg>
 }
 
 export default useBarcode;
