@@ -5,7 +5,7 @@ const DisplayChubs = ({chubs}) => {
     let meatChub = chubs.map((chub,idx) => {
         return <div className='grid grid-cols-1 gap-2 place-items-center'>
                     <InventoryItem key={idx} 
-                              identifier={chub.weight * idx}
+                              identifier={idx}
                               name={chub.name} 
                               weight={chub.weight} 
                               upc={chub.upc}

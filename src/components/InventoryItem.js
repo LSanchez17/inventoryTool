@@ -1,6 +1,7 @@
-import { useReducer, useState } from "react"
-import FinalWeight from './finalWeight';
-import UPC from './UPC';
+import { useState } from "react"
+import ChubCounter from './ChubCounter'
+import FinalWeight from './finalWeight'
+import UPC from './UPC'
 
 const InventoryItem = ({ identifier, name, weight, upc, count}) => {
     let [itemCount, setCount] = useState(count);
@@ -24,9 +25,7 @@ const InventoryItem = ({ identifier, name, weight, upc, count}) => {
         <div className='bg-blue-300 font-bold shadow-md font-sans rounded-2xl border-4 border-blue-500 border-opacity-25 m-2 p-1' key={idNumber}>
             <h2>{name}</h2>
             <h3 id={weightId}>Weight: {weight}lbs</h3>
-            <button className='font-medium hover:bg-blue-700 rounded-full py-1 px-1 border-2 m-2 border-blue-800' onClick={upDoot}>Increase + 1</button>
-            <h3 id={countId} className='bg-gray-200 p-1 m-1 rounded'># of chubs: {itemCount}</h3>
-            <button className='font-medium hover:bg-red-700 rounded-full py-1 px-1 border-2 m-2 border-red-800' onClick={downDoot}>Decrease - 1</button>
+            <ChubCounter countId={countId} count={itemCount} plusOne={upDoot} minusOne={downDoot} />
             <UPC upc={upc} />
             <FinalWeight weight={weight} count={itemCount} />
         </div>
