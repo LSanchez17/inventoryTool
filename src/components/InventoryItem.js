@@ -1,5 +1,6 @@
 import { useState } from "react"
 import FinalWeight from './finalWeight';
+import UPC from './UPC';
 
 const InventoryItem = ({ identifier, name, weight, upc, count}) => {
     let [itemCount, setCount] = useState(count);
@@ -26,7 +27,7 @@ const InventoryItem = ({ identifier, name, weight, upc, count}) => {
             <button className='hover:bg-blue-700 rounded-full py-1 px-1 border-2 m-2 border-blue-800' onClick={upDoot}>Increase</button>
             <h3 id={countId}># of chubs: {itemCount}</h3>
             <button className='hover:bg-red-700 rounded-full py-1 px-1 border-2 m-2 border-red-800' onClick={downDoot}>Decrease</button>
-            <h3>{upc}</h3>
+            <UPC upc={upc} />
             <FinalWeight weight={weight} count={itemCount} />
         </div>
     );

@@ -5,7 +5,7 @@ const FinalWeight = ({weight, count}) => {
 
     useEffect(() => {
         setWeight(weight*count);
-    }, [count])
+    }, [count, weight])
     
     return (
         <div>

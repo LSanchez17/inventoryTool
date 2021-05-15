@@ -1,10 +1,11 @@
 import InventoryItem from './InventoryItem';
 
 const DisplayChubs = ({chubs}) => {
+    let LARGENUM = 99999;
 
     let meatChub = chubs.map((chub,idx) => {
         return <div className='grid grid-cols-1 gap-2 place-items-center'>
-                    <InventoryItem key={chub.weight * Math.random()} 
+                    <InventoryItem key={Math.floor(Math.random() * LARGENUM)} 
                               identifier={chub.weight * idx}
                               name={chub.name} 
                               weight={chub.weight} 
