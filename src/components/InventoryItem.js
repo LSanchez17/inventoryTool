@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
 import FinalWeight from './finalWeight';
 import UPC from './UPC';
 
