@@ -12,7 +12,7 @@ const useBarcode = (upc) => {
         jsBarcode(`#${upcId}`, upc);
     });
 
-    return <svg id={upcId}></svg>
+    return <svg id={upcId} data-testid='upcTest'></svg>
 }
 
 export default useBarcode;
