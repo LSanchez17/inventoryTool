@@ -3,7 +3,7 @@ import ChubCounter from './ChubCounter'
 import FinalWeight from './finalWeight'
 import UPC from './UPC'
 
-const InventoryItem = ({ identifier, name, weight, upc, count}) => {
+const InventoryItem = ({ identifier, type, name, weight, upc, count}) => {
     let [itemCount, setCount] = useState(count);
 
     let upDoot = async () => {
@@ -26,7 +26,7 @@ const InventoryItem = ({ identifier, name, weight, upc, count}) => {
             <h2>{name}</h2>
             <h3 id={weightId}>Weight: {weight}lbs</h3>
             <ChubCounter countId={countId} count={itemCount} plusOne={upDoot} minusOne={downDoot} />
-            <UPC upc={upc} />
+            <UPC upc={upc} type={type}/>
             <FinalWeight weight={weight} count={itemCount} />
         </div>
     );
