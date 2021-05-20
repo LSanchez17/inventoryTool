@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const FinalWeight = ({weight, count}) => {
+    //grabs the weight of the item, and the most current coutn value
     let [itemWeight, setWeight] = useState(weight*count);
 
     useEffect(() => {

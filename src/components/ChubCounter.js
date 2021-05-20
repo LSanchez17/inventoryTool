@@ -1,5 +1,5 @@
 const ChubCounter = ({countId, count, plusOne, minusOne}) => {
-
+    //localize the state to an individual component, calls parent functions
     const callPlusOne = () => {
         plusOne();
     }

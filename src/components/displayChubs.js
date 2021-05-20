@@ -4,7 +4,8 @@ import {useState} from 'react'
 const DisplayChubs = ({chubs}) => {
 
     let meatChub = chubs.map((chub,idx) => {
-        return <div key={idx} className='grid grid-cols-1 gap-2 place-items-center'>
+        let className = `${chub.type} grid grid-cols-1 gap-2 place-items-center`
+        return <div key={idx} className={className}>
                     <InventoryItem key={idx} 
                               identifier={idx}
                               type={chub.type}
@@ -15,31 +16,56 @@ const DisplayChubs = ({chubs}) => {
                 </div>
       });
 
+    //save rendered children for iteration
+    //default renders every item
     let INIT = meatChub;
     let [sections, setSections] = useState(INIT);
+    let [boarsHead, setBoarsHead] = useState();
+    let [privateSelection, setPrivateSelection] = useState();
     
     const showPS = () => {
+        if(privateSelection !== undefined){
+            setSections(privateSelection);
+            return;
+        }
+        //only show the children who belong to private selection
         let PSOnly = [];
-        INIT.forEach((chub) => {
+        let BHOnly = [];
+        sections.forEach((chub) => {
             if(chub.props.children.props.type === 'PS'){
                 PSOnly.push(chub);
             }
-        });
-
-        setSections(PSOnly);
-    }
-
-    const showBH = () => {
-        let BHOnly = [];
-        INIT.forEach((chub) => {
             if(chub.props.children.props.type === 'BH'){
                 BHOnly.push(chub);
             }
         });
 
+        setBoarsHead(BHOnly);
+        setPrivateSelection(PSOnly);
+        setSections(PSOnly);
+    }
+
+    const showBH = () => {
+        if(boarsHead !== undefined){
+            setSections(boarsHead);
+            return;
+        }
+        //only show the children who belong to boar's
+        let BHOnly = [];
+        let PSOnly = [];
+        sections.forEach((chub) => {
+            if(chub.props.children.props.type === 'BH'){
+                BHOnly.push(chub);
+            }
+            if(chub.props.children.props.type === 'PS'){
+                PSOnly.push(chub);
+            }
+        });
+
+        setPrivateSelection(PSOnly);
+        setBoarsHead(BHOnly);
         setSections(BHOnly);
     }
-    console.log(INIT)
 
     return (
         <div>
