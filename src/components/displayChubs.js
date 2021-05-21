@@ -1,5 +1,5 @@
 import InventoryItem from './InventoryItem'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const DisplayChubs = ({chubs}) => {
 
@@ -23,48 +23,31 @@ const DisplayChubs = ({chubs}) => {
     let [boarsHead, setBoarsHead] = useState();
     let [privateSelection, setPrivateSelection] = useState();
     
-    const showPS = () => {
-        if(privateSelection !== undefined){
-            setSections(privateSelection);
-            return;
-        }
-        //only show the children who belong to private selection
-        let PSOnly = [];
-        let BHOnly = [];
-        sections.forEach((chub) => {
+    useEffect(() => {
+        let bh = [];
+        let ps = [];
+
+        sections.forEach(chub => {
             if(chub.props.children.props.type === 'PS'){
-                PSOnly.push(chub);
+                ps.push(chub);
             }
             if(chub.props.children.props.type === 'BH'){
-                BHOnly.push(chub);
+                bh.push(chub);
             }
         });
 
-        setBoarsHead(BHOnly);
-        setPrivateSelection(PSOnly);
-        setSections(PSOnly);
+        setBoarsHead(bh);
+        setPrivateSelection(ps);
+    }, [])
+    
+    const showPS = () => {
+        //only show the children who belong to private selection
+        setSections(privateSelection);
     }
 
     const showBH = () => {
-        if(boarsHead !== undefined){
-            setSections(boarsHead);
-            return;
-        }
         //only show the children who belong to boar's
-        let BHOnly = [];
-        let PSOnly = [];
-        sections.forEach((chub) => {
-            if(chub.props.children.props.type === 'BH'){
-                BHOnly.push(chub);
-            }
-            if(chub.props.children.props.type === 'PS'){
-                PSOnly.push(chub);
-            }
-        });
-
-        setPrivateSelection(PSOnly);
-        setBoarsHead(BHOnly);
-        setSections(BHOnly);
+        setSections(boarsHead);
     }
 
     return (
