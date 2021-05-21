@@ -1,8 +1,9 @@
+import PrivateOnly from './PrivateOnly';
+import BoarsOnly from './BoarsOnly';
 import InventoryItem from './InventoryItem'
 import {useState, useEffect} from 'react'
 
 const DisplayChubs = ({chubs}) => {
-
     let meatChub = chubs.map((chub,idx) => {
         let className = `${chub.type} grid grid-cols-1 gap-2 place-items-center`
         return <div key={idx} className={className}>
@@ -20,10 +21,15 @@ const DisplayChubs = ({chubs}) => {
     //default renders every item
     let INIT = meatChub;
     let [sections, setSections] = useState(INIT);
+    //keeps track of both lists when split
     let [boarsHead, setBoarsHead] = useState();
     let [privateSelection, setPrivateSelection] = useState();
-    
+    //keeps track of which to show and hide
+    let [privateOnly, setPrivateOnly] = useState(false);
+    let [boarsOnly, setBoarsOnly] = useState(false);
+
     useEffect(() => {
+        //split main chub list into two
         let bh = [];
         let ps = [];
 
@@ -41,20 +47,29 @@ const DisplayChubs = ({chubs}) => {
     }, [])
     
     const showPS = () => {
-        //only show the children who belong to private selection
+        //update state and save it
+        setPrivateSelection(privateSelection);
         setSections(privateSelection);
+        setBoarsOnly(false);
+        setPrivateOnly(true);
     }
 
     const showBH = () => {
-        //only show the children who belong to boar's
+        //update state and save it
         setSections(boarsHead);
+        setSections(boarsHead);
+        setBoarsOnly(true);
+        setPrivateOnly(false);
     }
 
     return (
         <div>
             <button className='bg-black text-yellow-300 rounded-2xl border-4 p-2 m-2' onClick={showBH}>Show Boar's Head</button>
             <button className='bg-blue-500 text-white rounded-2xl border-4 p-2 m-2' onClick={showPS}>Show Private Selection</button>
-            {sections}
+            <CountProvider>
+                {privateOnly && <PrivateOnly chubs={sections} />}
+                {boarsOnly && <BoarsOnly chubs={sections} />}
+            </CountProvider>
         </div>
     );
 }
