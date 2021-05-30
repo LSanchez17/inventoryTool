@@ -48,28 +48,20 @@ const DisplayChubs = ({chubs}) => {
     
     const showPS = () => {
         //update state and save it
-        setPrivateSelection(privateSelection);
-        setSections(privateSelection);
-        setBoarsOnly(false);
-        setPrivateOnly(true);
+        setPrivateOnly(privateSelection => !privateSelection);
     }
 
     const showBH = () => {
         //update state and save it
-        setSections(boarsHead);
-        setSections(boarsHead);
-        setBoarsOnly(true);
-        setPrivateOnly(false);
+        setBoarsOnly(boarsHead => !boarsHead);
     }
 
     return (
         <div>
             <button className='bg-black text-yellow-300 rounded-2xl border-4 p-2 m-2' onClick={showBH}>Show Boar's Head</button>
             <button className='bg-blue-500 text-white rounded-2xl border-4 p-2 m-2' onClick={showPS}>Show Private Selection</button>
-            <CountProvider>
-                {privateOnly && <PrivateOnly chubs={sections} />}
-                {boarsOnly && <BoarsOnly chubs={sections} />}
-            </CountProvider>
+            {privateOnly ? <PrivateOnly chubs={privateSelection} /> : sections}
+            {boarsOnly ? <BoarsOnly chubs={boarsHead} /> : sections}
         </div>
     );
 }
