@@ -1,7 +1,17 @@
+import {useEffect} from 'react'
 import InventoryItem from './InventoryItem'
 
-const PrivateOnly = ({chubs}) => {
-    console.log(chubs)
+const PrivateOnly = ({chubs, show}) => {
+    let divAttribute = '';
+
+    useEffect(() => {
+        if(show){
+            divAttribute = 'visible';
+        }
+        else{
+            divAttribute = 'invisible';
+        }
+    },[show]);
 
     let meatChub = chubs.map((chub,idx) => {
         let className = `${chub.type} grid grid-cols-1 gap-2 place-items-center`
@@ -17,9 +27,9 @@ const PrivateOnly = ({chubs}) => {
     });
 
     return(
-        <>
+        <div className={divAttribute}>
         {meatChub}
-        </>
+        </div>
     )
 }
 
