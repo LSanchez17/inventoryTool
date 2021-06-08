@@ -7,6 +7,6 @@
 
 # Updates?
 
-* Include customizable list to make each store individual.
-* Include more items than just the meats/cheeses
+* Increase inventory-able items
+* Redux it for easier state switching and permanence
 * make it pretti-er
