@@ -5,7 +5,7 @@ const FinalWeight = ({weight, count}) => {
     let [itemWeight, setWeight] = useState(weight*count);
 
     useEffect(() => {
-        setWeight(weight*count);
+        setWeight((weight*count).toFixed(2));
     }, [count, weight])
     
     return (

@@ -14,8 +14,13 @@ const useBarcode = (upc, type) => {
         // console.log(type)
         type === 'BH' ? jsBarcode(`#${upcId}`, upc) : jsBarcode(`#${upcId}`, upc, {format: 'CODE39'});
     });
+    let fitScreen = `${type} w-96`;
 
-    return <svg key={upc} id={upcId} className={type} data-testid='upcTest'></svg>
+    return (
+        <div className='w-96'>
+            <svg key={upc} id={upcId} className={fitScreen} data-testid='upcTest'></svg>
+        </div>
+    );
 }
 
 export default useBarcode;
