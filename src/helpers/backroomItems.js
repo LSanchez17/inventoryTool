@@ -32,7 +32,7 @@
     {type: 'Case', name: 'Garlic Rotisserie Chicken', upc: "0084013430007", count: 0}, {type: 'Case', name: '8PC Chicken', upc: "0004172302345", count: 0},
     {type: 'Case', name: 'Regular Rotisserie Chicken', upc: "0084013430006", count: 0}, {type: 'Case', name: 'Organic Rotisserie Chicken', upc: "0007496035810", count: 0},
     {type: 'Case', name: 'Tenders', upc: "0007563245811", count: 0}, {type: 'Case', name: 'BBQ Chicken', upc: "0905570", count: 0},
-    {type: 'Eaches', name: 'Tender Batter', upc: "0007029219907", count: 0}, {type: 'Eaches', name: 'Frying Oil', upc: "00075188498921", count: 0},
+    {type: 'Eaches', name: 'Tender Batter', upc: "0007029219907", count: 0}, {type: 'Eaches', name: 'Frying Oil', upc: "0075188498921", count: 0},
     {type: 'Eaches', name: 'Chicken Seasoning', upc: "0040519206794", count: 0}, {type: 'Eaches', name: 'Chicken Flour', upc: "0007029216167", count: 0},
     {type: 'Eaches', name: 'BBQ Sauce Packets', upc: "0002670015980", count: 0}
 ]

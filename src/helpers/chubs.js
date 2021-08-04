@@ -33,7 +33,7 @@ let chubs = [
     {type: 'PS', name: 'PS Nashville Chicken', weight: 5, upc: "0001111019274",count: 0},{type: 'PS', name: 'PS Black Forest Ham', weight: 4.25, upc: "0001111099024", count: 0},
     {type: 'PS', name: 'PS Roast Beef', weight: 6.5, upc: "0001111060263",count: 0},{type: 'PS', name: 'PS Brown Sugar Ham', weight: 4.25, upc: "0001111099415",count: 0},
     {type: 'PS', name: 'PS CherryWood Ham', weight: 5, upc: "0001111011213",count: 0},{type: 'PS', name: 'PS Polish Ham', weight: 7, upc: "0001111011501", count: 0},
-    {type: 'PS', name: 'PS Maple Ham', weight: 4.5, upc: "0001111011500", count: 0},
+    {type: 'PS', name: 'PS Maple Ham', weight: 4.5, upc: "0001111011500", count: 0}, {type: 'PS', name: 'PS Honey Ham', weight: 5, upc: "0001111018103", count: 0},
     {type: 'PS', name: 'PS L/S Chicken', weight: 5.5, upc: "0001111058667",count: 0},{type: 'PS', name: 'PS Tavern Ham', weight: 4.5, upc: "0001111058676",count: 0},
     {type: 'PS', name: 'PS Genoa Salami', weight: 3.75, upc: "0001111060273", count: 0},{type: 'PS', name: 'PS Hard Salami', weight: 3.75, upc: "0001111060274",count: 0},
     {type: 'PS', name: 'PS Beef Bologna', weight: 3.4, upc: "0001111052230",count: 0},{type: 'PS', name: 'PS Pepperoni', weight: 3.125, upc: "0001111099838",count: 0},
