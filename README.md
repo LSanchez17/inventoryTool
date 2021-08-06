@@ -9,6 +9,7 @@
 
 * Redux it for easier state switching and permanence
 * make it pretti-er
-* Fix bugs found in live testing
 * add customization
 * add global state
+* Add feature to cuztomise to any store
+* backend?
