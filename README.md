@@ -1,15 +1,11 @@
-# Yall already know, its a react app, fork it, clone it, npm start it
+# Its a react app, fork it, clone it, npm start it, etc
 
 * Helps increase my accuracy, speed, and productivity during monthly perishable inventory
 * Built with React, JsBarcode, Tailwind-CSS
-* Reduces my time by about ~1-2 hour 😁
-* Can now go in at 530 instead of 4 am 🤩
+* Reduces my manual count time by at least 1-2 hours on average
 
 # Updates?
 
-* Redux it for easier state switching and permanence
 * make it pretti-er
 * add customization
 * add global state
-* Add feature to cuztomise to any store
-* backend?
